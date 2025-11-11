@@ -112,3 +112,7 @@ FROM movies ORDER BY movies.title ASC
 2025-11-11 13:52:58,945 [INFO] [cached since 29.66s ago] (6, 0)
 2025-11-11 13:52:58,947 [INFO] Resposta 200 para GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=1&limit=6
 2025-11-11 13:52:58,948 [INFO] ROLLBACK
+2025-11-11 14:35:19,536 [INFO] BEGIN (implicit)
+2025-11-11 14:35:19,537 [INFO] PRAGMA main.table_info("movies")
+2025-11-11 14:35:19,537 [INFO] [raw sql] ()
+2025-11-11 14:35:19,541 [INFO] COMMIT
