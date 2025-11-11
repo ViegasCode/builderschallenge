@@ -1,3 +1,10 @@
+import os
+import uvicorn
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("buildbox_challenge_final.main:app", host="0.0.0.0", port=port, reload=True)
+
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -5,6 +12,8 @@ from fastapi.staticfiles import StaticFiles
 from buildbox_challenge_final.database import engine, Base
 from buildbox_challenge_final.routers import movies
 from buildbox_challenge_final.logger import logger
+
+
 
 app = FastAPI(title="IMDb Movie Tracker API", version="1.0")
 

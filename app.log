@@ -116,3 +116,52 @@ FROM movies ORDER BY movies.title ASC
 2025-11-11 14:35:19,537 [INFO] PRAGMA main.table_info("movies")
 2025-11-11 14:35:19,537 [INFO] [raw sql] ()
 2025-11-11 14:35:19,541 [INFO] COMMIT
+2025-11-11 14:55:43,873 [INFO] BEGIN (implicit)
+2025-11-11 14:55:43,874 [INFO] PRAGMA main.table_info("movies")
+2025-11-11 14:55:43,874 [INFO] [raw sql] ()
+2025-11-11 14:55:43,876 [INFO] COMMIT
+2025-11-11 14:55:49,132 [INFO] Recebida requisição GET http://localhost:8000/
+2025-11-11 14:55:49,136 [INFO] Resposta 200 para GET http://localhost:8000/
+2025-11-11 14:55:49,245 [INFO] Recebida requisição GET http://localhost:8000/static/style.css
+2025-11-11 14:55:49,246 [INFO] Recebida requisição GET http://localhost:8000/static/script.js
+2025-11-11 14:55:49,293 [INFO] Resposta 304 para GET http://localhost:8000/static/style.css
+2025-11-11 14:55:49,295 [INFO] Resposta 304 para GET http://localhost:8000/static/script.js
+2025-11-11 14:55:49,494 [INFO] Recebida requisição GET http://localhost:8000/movies/years
+2025-11-11 14:55:49,495 [INFO] Recebida requisição GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=1&limit=6
+2025-11-11 14:55:49,499 [INFO] BEGIN (implicit)
+2025-11-11 14:55:49,502 [INFO] SELECT DISTINCT movies.year 
+FROM movies ORDER BY movies.year
+2025-11-11 14:55:49,502 [INFO] [generated in 0.00050s] ()
+2025-11-11 14:55:49,503 [INFO] BEGIN (implicit)
+2025-11-11 14:55:49,505 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies ORDER BY movies.title ASC
+ LIMIT ? OFFSET ?
+2025-11-11 14:55:49,505 [INFO] [generated in 0.00076s] (6, 0)
+2025-11-11 14:55:49,508 [INFO] Resposta 200 para GET http://localhost:8000/movies/years
+2025-11-11 14:55:49,510 [INFO] ROLLBACK
+2025-11-11 14:55:49,512 [INFO] Resposta 200 para GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=1&limit=6
+2025-11-11 14:55:49,514 [INFO] ROLLBACK
+2025-11-11 14:55:52,350 [INFO] Recebida requisição GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=2&limit=6
+2025-11-11 14:55:52,353 [INFO] BEGIN (implicit)
+2025-11-11 14:55:52,354 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies ORDER BY movies.title ASC
+ LIMIT ? OFFSET ?
+2025-11-11 14:55:52,354 [INFO] [cached since 2.85s ago] (6, 6)
+2025-11-11 14:55:52,357 [INFO] Resposta 200 para GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=2&limit=6
+2025-11-11 14:55:52,358 [INFO] ROLLBACK
+2025-11-11 14:55:53,507 [INFO] Recebida requisição GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=1&limit=6
+2025-11-11 14:55:53,509 [INFO] BEGIN (implicit)
+2025-11-11 14:55:53,509 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies ORDER BY movies.title ASC
+ LIMIT ? OFFSET ?
+2025-11-11 14:55:53,509 [INFO] [cached since 4.005s ago] (6, 0)
+2025-11-11 14:55:53,512 [INFO] Resposta 200 para GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=1&limit=6
+2025-11-11 14:55:53,513 [INFO] ROLLBACK
+2025-11-11 14:57:13,922 [INFO] BEGIN (implicit)
+2025-11-11 14:57:13,923 [INFO] PRAGMA main.table_info("movies")
+2025-11-11 14:57:13,923 [INFO] [raw sql] ()
+2025-11-11 14:57:13,926 [INFO] COMMIT
+2025-11-11 14:59:27,703 [INFO] BEGIN (implicit)
+2025-11-11 14:59:27,703 [INFO] PRAGMA main.table_info("movies")
+2025-11-11 14:59:27,704 [INFO] [raw sql] ()
+2025-11-11 14:59:27,706 [INFO] COMMIT
