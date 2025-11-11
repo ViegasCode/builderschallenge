@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Filmes</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.icon.png">
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Filmes</h1>
+        <div class="filters">
+            <input type="text" id="search" placeholder="Buscar por título">
+            <select id="year">
+                <option value="All">Todos os anos</option>
+            </select>
+            <select id="sort">
+                <option value="title">Título</option>
+                <option value="imdb_rating">IMDB</option>
+            </select>
+            <select id="order">
+                <option value="asc">Crescente</option>
+                <option value="desc">Decrescente</option>
+            </select>
+            <button id="refresh">Atualizar</button>
+        </div>
+    </header>
+
+    <main id="movie-container">
+        <!-- Os filmes serão carregados aqui via JS -->
+    </main>
+
+    <div class="pagination">
+        <button id="prev">Anterior</button>
+        <button id="next">Próximo</button>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

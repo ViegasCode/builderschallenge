@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #FFF;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    background-color: #111;
+    border-bottom: 2px solid #FFD940;
+}
+
+header h1 {
+    color: #FFD940;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.filters select,
+.filters input,
+.filters button {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+.filters input,
+.filters select {
+    background-color: #222;
+    color: #FFF;
+}
+
+.filters button {
+    background-color: #FFD940;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.filters button:hover {
+    transform: scale(1.05);
+}
+
+/* Container dos filmes */
+#movie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card dos filmes */
+.movie-card {
+    background-color: #111;
+    border: 2px solid #FFD940;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #FFD940;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-card h3 {
+    margin: 10px 0 5px 0;
+    color: #FFD940;
+    font-size: 1.1em;
+}
+
+.movie-card p {
+    margin: 2px 0;
+}
+
+/* Paginação */
+.pagination {
+    text-align: center;
+    margin: 20px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #FFD940;
+    color: #000;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.pagination button:hover {
+    transform: scale(1.05);
+}

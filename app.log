@@ -1,0 +1,114 @@
+2025-11-11 13:52:16,420 [INFO] BEGIN (implicit)
+2025-11-11 13:52:16,421 [INFO] PRAGMA main.table_info("movies")
+2025-11-11 13:52:16,421 [INFO] [raw sql] ()
+2025-11-11 13:52:16,422 [INFO] PRAGMA temp.table_info("movies")
+2025-11-11 13:52:16,422 [INFO] [raw sql] ()
+2025-11-11 13:52:16,424 [INFO] 
+CREATE TABLE movies (
+	id INTEGER NOT NULL, 
+	title VARCHAR, 
+	year VARCHAR, 
+	director VARCHAR, 
+	plot VARCHAR, 
+	imdb_rating VARCHAR, 
+	poster VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+2025-11-11 13:52:16,424 [INFO] [no key 0.00100s] ()
+2025-11-11 13:52:16,430 [INFO] CREATE UNIQUE INDEX ix_movies_title ON movies (title)
+2025-11-11 13:52:16,430 [INFO] [no key 0.00032s] ()
+2025-11-11 13:52:16,435 [INFO] CREATE INDEX ix_movies_id ON movies (id)
+2025-11-11 13:52:16,435 [INFO] [no key 0.00030s] ()
+2025-11-11 13:52:16,440 [INFO] COMMIT
+2025-11-11 13:52:28,886 [INFO] Recebida requisição GET http://localhost:8000/
+2025-11-11 13:52:28,890 [INFO] Resposta 200 para GET http://localhost:8000/
+2025-11-11 13:52:28,945 [INFO] Recebida requisição GET http://localhost:8000/static/style.css
+2025-11-11 13:52:28,996 [INFO] Resposta 304 para GET http://localhost:8000/static/style.css
+2025-11-11 13:52:28,997 [INFO] Recebida requisição GET http://localhost:8000/static/script.js
+2025-11-11 13:52:29,001 [INFO] Resposta 304 para GET http://localhost:8000/static/script.js
+2025-11-11 13:52:29,272 [INFO] Recebida requisição GET http://localhost:8000/movies/years
+2025-11-11 13:52:29,274 [INFO] Recebida requisição GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=1&limit=6
+2025-11-11 13:52:29,277 [INFO] BEGIN (implicit)
+2025-11-11 13:52:29,279 [INFO] SELECT DISTINCT movies.year 
+FROM movies ORDER BY movies.year
+2025-11-11 13:52:29,279 [INFO] [generated in 0.00066s] ()
+2025-11-11 13:52:29,281 [INFO] BEGIN (implicit)
+2025-11-11 13:52:29,283 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies ORDER BY movies.title ASC
+ LIMIT ? OFFSET ?
+2025-11-11 13:52:29,283 [INFO] [generated in 0.00056s] (6, 0)
+2025-11-11 13:52:29,285 [INFO] Resposta 200 para GET http://localhost:8000/movies/years
+2025-11-11 13:52:29,288 [INFO] ROLLBACK
+2025-11-11 13:52:29,290 [INFO] Resposta 200 para GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=1&limit=6
+2025-11-11 13:52:29,293 [INFO] ROLLBACK
+2025-11-11 13:52:29,326 [INFO] Recebida requisição GET http://localhost:8000/static/favicon.icon.png
+2025-11-11 13:52:29,328 [INFO] Resposta 304 para GET http://localhost:8000/static/favicon.icon.png
+2025-11-11 13:52:39,652 [INFO] Recebida requisição POST http://localhost:8000/movies/
+2025-11-11 13:52:39,657 [INFO] BEGIN (implicit)
+2025-11-11 13:52:39,659 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies 
+WHERE lower(movies.title) LIKE lower(?)
+2025-11-11 13:52:39,660 [INFO] [generated in 0.00176s] ('Scream 2',)
+2025-11-11 13:52:40,352 [INFO] HTTP Request: GET https://www.omdbapi.com/?t=Scream%202&apikey=2f84e8b "HTTP/1.1 200 OK"
+2025-11-11 13:52:40,355 [INFO] INSERT INTO movies (title, year, director, plot, imdb_rating, poster) VALUES (?, ?, ?, ?, ?, ?)
+2025-11-11 13:52:40,355 [INFO] [generated in 0.00042s] ('Scream 2', '1997', 'Wes Craven', 'Sidney Prescott, now enrolled at a college in Ohio, is faced with another Ghostface killer eliminating her classmates.', '6.3', 'https://m.media-amazon.com/images/M/MV5BODE5YWJkMDMtN2ZiNC00MjI5LTkxYTgtOTkyZjUwMjU0YThiXkEyXkFqcGc@._V1_SX300.jpg')
+2025-11-11 13:52:40,359 [INFO] COMMIT
+2025-11-11 13:52:40,367 [INFO] BEGIN (implicit)
+2025-11-11 13:52:40,368 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies 
+WHERE movies.id = ?
+2025-11-11 13:52:40,369 [INFO] [generated in 0.00063s] (1,)
+2025-11-11 13:52:40,371 [INFO] Resposta 201 para POST http://localhost:8000/movies/
+2025-11-11 13:52:40,372 [INFO] ROLLBACK
+2025-11-11 13:52:48,704 [INFO] Recebida requisição POST http://localhost:8000/movies/
+2025-11-11 13:52:48,707 [INFO] BEGIN (implicit)
+2025-11-11 13:52:48,708 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies 
+WHERE lower(movies.title) LIKE lower(?)
+2025-11-11 13:52:48,708 [INFO] [cached since 9.05s ago] ('Scream 3',)
+2025-11-11 13:52:49,368 [INFO] HTTP Request: GET https://www.omdbapi.com/?t=Scream%203&apikey=2f84e8b "HTTP/1.1 200 OK"
+2025-11-11 13:52:49,369 [INFO] INSERT INTO movies (title, year, director, plot, imdb_rating, poster) VALUES (?, ?, ?, ?, ?, ?)
+2025-11-11 13:52:49,369 [INFO] [cached since 9.015s ago] ('Scream 3', '2000', 'Wes Craven', 'In Hollywood, a new Ghostface starts killing the cast of Stab 3, a movie sequel whose previous movies were based on the Woodsboro and Windsor College killings. Forcing the survivors of those previous attacks to confront terror onc...', '5.7', 'https://m.media-amazon.com/images/M/MV5BMzc4MThjNDItNWIzYy00NjA5LWExMTAtNjAzZGQwZTViN2ZiXkEyXkFqcGc@._V1_SX300.jpg')
+2025-11-11 13:52:49,372 [INFO] COMMIT
+2025-11-11 13:52:49,381 [INFO] BEGIN (implicit)
+2025-11-11 13:52:49,383 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies 
+WHERE movies.id = ?
+2025-11-11 13:52:49,383 [INFO] [cached since 9.015s ago] (2,)
+2025-11-11 13:52:49,385 [INFO] Resposta 201 para POST http://localhost:8000/movies/
+2025-11-11 13:52:49,386 [INFO] ROLLBACK
+2025-11-11 13:52:52,935 [INFO] Recebida requisição POST http://localhost:8000/movies/
+2025-11-11 13:52:52,939 [INFO] BEGIN (implicit)
+2025-11-11 13:52:52,939 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies 
+WHERE lower(movies.title) LIKE lower(?)
+2025-11-11 13:52:52,940 [INFO] [cached since 13.28s ago] ('Scream 4',)
+2025-11-11 13:52:53,608 [INFO] HTTP Request: GET https://www.omdbapi.com/?t=Scream%204&apikey=2f84e8b "HTTP/1.1 200 OK"
+2025-11-11 13:52:53,610 [INFO] INSERT INTO movies (title, year, director, plot, imdb_rating, poster) VALUES (?, ?, ?, ?, ?, ?)
+2025-11-11 13:52:53,610 [INFO] [cached since 13.26s ago] ('Scream 4', '2011', 'Wes Craven', "Sidney Prescott's return to Woodsboro coincides with that of the Ghostface Killer.", '6.2', 'https://m.media-amazon.com/images/M/MV5BMTk5OTcxNTUyNF5BMl5BanBnXkFtZTcwMDczMzE0NA@@._V1_SX300.jpg')
+2025-11-11 13:52:53,613 [INFO] COMMIT
+2025-11-11 13:52:53,621 [INFO] BEGIN (implicit)
+2025-11-11 13:52:53,621 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies 
+WHERE movies.id = ?
+2025-11-11 13:52:53,622 [INFO] [cached since 13.25s ago] (3,)
+2025-11-11 13:52:53,624 [INFO] Resposta 201 para POST http://localhost:8000/movies/
+2025-11-11 13:52:53,625 [INFO] ROLLBACK
+2025-11-11 13:52:54,504 [INFO] Recebida requisição POST http://localhost:8000/movies/
+2025-11-11 13:52:54,507 [INFO] BEGIN (implicit)
+2025-11-11 13:52:54,508 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies 
+WHERE lower(movies.title) LIKE lower(?)
+2025-11-11 13:52:54,508 [INFO] [cached since 14.85s ago] ('Scream 4',)
+2025-11-11 13:52:54,511 [INFO] ROLLBACK
+2025-11-11 13:52:54,512 [INFO] Resposta 400 para POST http://localhost:8000/movies/
+2025-11-11 13:52:58,942 [INFO] Recebida requisição GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=1&limit=6
+2025-11-11 13:52:58,944 [INFO] BEGIN (implicit)
+2025-11-11 13:52:58,945 [INFO] SELECT movies.id, movies.title, movies.year, movies.director, movies.plot, movies.imdb_rating, movies.poster 
+FROM movies ORDER BY movies.title ASC
+ LIMIT ? OFFSET ?
+2025-11-11 13:52:58,945 [INFO] [cached since 29.66s ago] (6, 0)
+2025-11-11 13:52:58,947 [INFO] Resposta 200 para GET http://localhost:8000/movies/?search=&year=All&sort_by=title&order=asc&page=1&limit=6
+2025-11-11 13:52:58,948 [INFO] ROLLBACK

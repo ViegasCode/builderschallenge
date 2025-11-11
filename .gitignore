@@ -1,0 +1,8 @@
+/venv
+buildbox_challenge_final/.env
+__pycache__/
+*.pyc
+*.db
+.idea/
+.vscode/
+.env.*
